@@ -1,6 +1,8 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Playlist {
-
+    private final Queue<Song> songQueue = new LinkedList<>();
     /**
      * Constructor.
      */
@@ -14,7 +16,10 @@ public class Playlist {
      * @return The next Song in the playlist, or null if the playlist is empty.
      */
     public Song getNextSong() {
-        return null;
+        if (songQueue.isEmpty()) {
+            return null;
+        }
+        return songQueue.remove();
     }
 
     /**
@@ -22,7 +27,7 @@ public class Playlist {
      * @param song the song to be added to the playlist.
      */
     public void addSong(Song song) {
-
+        songQueue.add(song);
     }
 
 }
